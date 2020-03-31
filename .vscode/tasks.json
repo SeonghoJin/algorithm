@@ -28,9 +28,8 @@
         {
             "type": "shell",
             "label": "Build and run",
-            "command": "C:\\MinGW\\bin\\g++.exe -g ${file} -o ${fileDirname}\\${fileBasenameNoExtension}.exe && C:\\Users\\user\\Desktop\\진성호\\Algorithm\\BOJ\\main.exe",
+            "command": "C:\\MinGW\\bin\\g++.exe -g ${file} -o ${fileDirname}\\${fileBasenameNoExtension}.exe && C:\\Users\\user\\Desktop\\진성호\\Algorithm\\main.exe",
             "args": [
-                
             ],
             "options": {
                 "cwd": "C:\\MinGW\\bin"
