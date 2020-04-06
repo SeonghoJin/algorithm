@@ -3,6 +3,7 @@
     "files.associations": {
         "limits": "cpp",
         "xtree": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "xstring": "cpp"
     }
 }
