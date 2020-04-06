@@ -4,6 +4,7 @@
         "limits": "cpp",
         "xtree": "cpp",
         "queue": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "ios": "cpp"
     }
 }
