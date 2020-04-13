@@ -7,6 +7,7 @@
         "xstring": "cpp",
         "ios": "cpp",
         "vector": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "iostream": "cpp"
     }
 }
