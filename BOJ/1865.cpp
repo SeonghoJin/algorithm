@@ -2,64 +2,89 @@
 
 using namespace std;
 
-const int INF = 987654321;
+const int INF = 987654321*2;
 
 int main(){
 	cin.tie(0);
 	ios_base :: sync_with_stdio(0);
 
-	int T;
-	cin >> T;
+	
+	
+	int N, M;
+	vector<pair<int,int>> v[101];
+	vector<int> id[101];
+	cin >> N >> M;
+	for(int i = 0; i < M; i++){
+		int a, b, c;
+		cin >> a >> b >> c;
+		v[a-1].push_back({b-1,-c});
+		id[b-1].push_back(a-1);
+	}
 
-	while(T--){
-		int N, M, W;
-		cin >> N >> M >> W;
-
-		vector<pair<int,int>> adjlist[501];
-		for(int i = 0; i < M; i++){
-			int a, b, c;
-			cin >> a >> b >> c;
-			--a; --b;
-			adjlist[a].push_back({b,c});
-			adjlist[b].push_back({a,c});
-		}
-
-		for(int i = 0; i < W; i++){
-			int a, b, c;
-			cin >> a >> b >> c;
-			--a; --b;
-			adjlist[a].push_back({b,-c});
-		}
+	
+	
+	queue<int> q;
+	vector<int> visit(N,0);
+	q.push(N-1);
+	visit[N-1] = 1;
+	while(!q.empty()){
+		int here = q.front(); q.pop();
 		
-		vector<int> visit(N,0);
-		bool flag = false;
-		for(int t = 0; t < N; t++){
-			if(visit[t])continue;
-			vector<int> dist(N+1,INF);
-			dist[t] = 0;
-			visit[t] = 1;
-		for(int i = 0; i < N; i++){
-			for(int j = 0; j < N; j++){
-				if(dist[j] == INF)continue;
-				visit[j] = 1;
-				for(int k = 0; k < adjlist[j].size(); k++){
-					int next = adjlist[j][k].first;
-					int d = adjlist[j][k].second; 
-					if(dist[next] > dist[j] + d){
-						dist[next] = dist[j] + d;
-						if(i == N-1)flag = true;
-					}
+		for(int i = 0; i < id[here].size(); i++){
+			int next = id[here][i];
+			if(visit[next])continue;
+			visit[next] = 1;
+			q.push(next);
+		}
+	}
 
+	
+	
+	
+	
+	bool flag = false;
+	vector<int> cost(N, INF);
+	vector<int> dp(N,-1);
+	cost[0] = 0;
+	
+
+	
+	for(int i = 0; i < N; i++){
+		for(int j = 0; j < N; j++){
+			if(cost[j] == INF)continue;
+			int here = j;
+			for(int k = 0; k < v[j].size(); k++){
+				int next = v[here][k].first;
+				int c = v[here][k].second;
+
+				if(cost[here] + c < cost[next]){
+					cost[next] = cost[here] + c;
+					dp[next] = here;
+					if(i == N-1 && visit[next])flag = true;
 				}
-
 			}
 		}
+	}
+	if(flag || cost[N-1] == INF){
+		cout << -1;
+	}
+	else {
+		int end = N-1;
+		stack<int> s;
+
+		while(end != -1){
+
+			s.push(end);
+			end = dp[end];
 		}
-		if(flag)cout << "YES" << '\n';
-		else{cout << "NO" << '\n';
+	
+		while(!s.empty()){
+			cout << s.top()+1 << " ";
+			s.pop();
 		}
 
 	}
+	
 }
 	
 
