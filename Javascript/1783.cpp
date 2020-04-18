@@ -1,10 +1,9 @@
-var fs = require('fs');
- 
-
-    
+    var fs = require('fs');
     var input = fs.readFileSync('/dev/stdin').toString().split(' ');
+   
     var N = input[0];
     var M = input[1];
+    
     if(N == 1 || M == 1){
         console.log(1);
     }
