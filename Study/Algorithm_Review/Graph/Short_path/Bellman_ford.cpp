@@ -20,6 +20,7 @@ int main(){
 
     vector<int> sp(N, INF);
     bool Infinityroof = false;
+    sp[0] = 0;
     for(int i = 0; i < N; i++){
         for(int j = 0; j < N; j++){
             if(sp[j] == INF)continue;
@@ -39,6 +40,6 @@ int main(){
         }
     }
 
-    
+
 
 }
