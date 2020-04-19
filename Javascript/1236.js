@@ -1,8 +1,8 @@
 var fs = require('fs');
  
-
+fs.readFile('dev/stdin', 'utf8', function(err, data) {
     
-    var input = fs.readFileSync('/dev/stdin').toString().split(' ');
+    var input = data.split(' ');
     var N = input[0];
     var M = input[1];
     if(N == 1 || M == 1){
@@ -20,3 +20,4 @@ var fs = require('fs');
     
     
 
+});
