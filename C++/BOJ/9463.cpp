@@ -49,7 +49,7 @@ int main(){
 
 
 
-		vector<long long> fenwik(100000+1,0);
+		vector<long long> fenwik(sz+1,0);
 		long long ans = 0;
 		for(long long i = 1; i <= sz; i++){
 			long long cur = v1[i];
