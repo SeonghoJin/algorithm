@@ -4,14 +4,7 @@ using namespace std;
 
 int map[251][251];
 
-int dy[8] = {0,0,1,-1,1,-1,1,-1};
-int dx[8] = {1,-1,1,-1,-1,1,0,0};
-int N, M;  
-    
-bool check(int y, int x){
-    return (y >=0 && y < N && x >= 0 && x < M && (map[y][x] == 1));
-}
-
+iadad
 void dfs(int y, int x){
     map[y][x] = 0;
    
