@@ -21,7 +21,7 @@ function aa(){
 
 }
 (function kk(){
-    
+    Math
 }
 
 )
