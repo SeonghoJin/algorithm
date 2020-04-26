@@ -178,7 +178,7 @@ int main(){
 		if(i != temp.size()-1)cout << "&&";
 	}}
 	else{
-		cout << "1==1";
+		cout << "1==11";
 	}
 
 
