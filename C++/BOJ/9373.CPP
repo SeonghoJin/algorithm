@@ -56,11 +56,11 @@ int main() {
 			for (int j = i + 1; j < n; ++j) {
 				E.push_back({ i, j, a[i].distBound(a[j]) });
 			}
-		}sd
+		}
 		group[LEFT] = LEFT;
 		group[RIGHT] = RIGHT;
 		sort(E.begin(), E.end());
-dd
+
 		double ans = w;
 		for (auto& e : E) {
 			// 가장 짧은 거리부터 탐색
@@ -73,4 +73,4 @@ dd
 		}
 	}
 	return 0;
-}dasd
+}
