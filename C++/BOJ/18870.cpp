@@ -27,7 +27,7 @@ int main(){
             cur++;
         }
    }
-    1231s
+    123~
     for(int i = 0; i < N; i++){
         cout << vv[i] << ' ';
     }
