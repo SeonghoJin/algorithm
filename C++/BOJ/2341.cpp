@@ -13,7 +13,7 @@ vector<int> answer;
 vector<int> temp;
 
 void find(int n, int k){
-	//cout << n << " " << k << '\n';
+
 	if(flag)return;
 	if(n == 0){
 		answer = temp;
@@ -74,14 +74,7 @@ int main(){
 	for(int i = 0; i < 4; i++){
 		ans = min(ans, dp[N-1][i]);
 	}
-	/*
-	for(int i = 0; i < N; i++){
-		for(int j = 0; j < 4; j++){
-			cout << dp[i][j] << " ";
-		}
-		cout << '\n';
-	}
-	*/
+
 	cout << ans << '\n';
 	for(int i = 0; i < 4; i++){
 		if(ans == dp[N-1][i]){
@@ -92,14 +85,8 @@ int main(){
 	}
 	
 	reverse(answer.begin(), answer.end());
-	/*
-	for(int i = 0; i < answer.size(); i++){
-		cout << answer[i] << " ";
-	}
-	cout << '\n';
-	*/
-	cout << code[answer[0]];
 	
+	cout << code[answer[0]];
 	for(int i = 1; i < answer.size(); i++){
 		cout << (answer[i] == answer[i-1] ? "0" : "1" + code[answer[i]]);
 	}
