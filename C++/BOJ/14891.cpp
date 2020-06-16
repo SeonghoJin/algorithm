@@ -1,70 +1,62 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-int K;
-string state[4];
-int is[4][4];
-int dy[2] = {-1,1};
-void calc(){
-	is[0][1] = is[1][0] = state[0][2] != state[1][6];
-	is[1][2] = is[2][1] = state[1][2] != state[2][6];
-	is[2][3] = is[3][2] = state[2][2] != state[3][6]; 
-}
-
-void rotate(int num, int dir){
-	int visit[4];
-	fill(visit, visit+4, 0);
-
-	queue<int> q;
-
-	q.push(num);
-	visit[num] = dir;
-	while(!q.empty()){
-		int here = q.front(); q.pop();
-
-		for(int i = 0; i < 2; i++){
-			int ny = dy[i] + here;
-			if(ny < 0 || ny >= 4)continue;
-			if(visit[ny] != 0)continue;
-			if(is[here][ny] == 0)continue;
-			visit[ny] = -visit[here];
-			q.push(ny);
+using pii = pair<int,int>;
+int path[13][101];
+int N, M;
+int m[51][51];
+pii home[101];
+pii chicken[13];
+int c_cur = 0;
+int h_cur = 0;
+void precalc(){
+	for(int i = 0; i < c_cur; i++){
+		for(int j = 0; j < h_cur; j++){
+			int p = abs(home[j].first - chicken[i].first) + abs(home[j].second - chicken[i].second);
+			path[i][j] = p;
 		}
 	}
-
-	for(int i = 0; i < 4; i++){
-		int temp[8];
-		int d = visit[i];
-		for(int j = 0; j < 8; j++){
-			temp[(j+8+d)%8] = state[i][j];
-		}
-		for(int j = 0; j < 8; j++){
-			state[i][j] = temp[j];
-		}
-	}
-
 }
 int main(){
 	cin.tie(0);
 	ios_base :: sync_with_stdio(false);
 
-	for(int i = 0; i < 4; i++){
-		cin >> state[i];
+	cin >> N >> M;
+	for(int i = 0; i < N; i++){
+		for(int j = 0; j < N; j++){
+			cin >> m[i][j];
+			if(m[i][j] == 1){
+				home[h_cur++] = {i,j};
+			}
+			else if(m[i][j] == 2){
+				chicken[c_cur++] = {i,j};
+			}
+		}
 	}
 
-	cin >> K;
-	calc();
-	while(K--){
-		int a, b;
-		cin >> a >> b;
-		rotate(a-1,b);
-		calc();
-	}
+	precalc();
+	int ans = INT_MAX;
 
-	int ans = 0;
-	for(int i = 0, k = 1; i < 4; i++,k*=2){
-		if(state[i][0] == '1')ans+=k;
+	for(int i = 0; i < (1 << c_cur); i++){
+		int sum = 0;
+		for(int j = 0; j < c_cur; j++){
+			sum+=((i & (1 << j)) > 0);
+		}
+		if(sum != M)continue;
+
+		vector<int> sh(h_cur,INT_MAX);
+		for(int j = 0; j < c_cur; j++){
+			if((i & (1 << j)) == 0)continue;
+
+			for(int k = 0; k < h_cur; k++){
+				sh[k] = min(sh[k], path[j][k]);
+			}
+		}
+		int temp = 0;
+		for(int j = 0; j < h_cur; j++){
+			temp += (sh[j]);
+		}
+		ans = min(ans, temp);
 	}
 	cout << ans;
 }
