@@ -3,6 +3,9 @@
 using namespace std;
 
 int main(){
+    int T;
+    cin >> T;
+    while(T--){
     string a, b;
     cin >> a >> b;
     
@@ -42,4 +45,6 @@ int main(){
 	if(flag){
 		cout << '0';
 	}
+    cout << '\n';
+    }
 }
