@@ -2,9 +2,6 @@
 
 using namespace std;
 
-int a[80002];
-int b[40002];
-
 int main(){
     cin.tie(0);
     ios_base :: sync_with_stdio(0);
