@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+int head = 0;
+int st[1000010];
+char c[1000010];
 int main(){
     cin.tie(0);
     ios_base :: sync_with_stdio(0);
@@ -11,32 +13,34 @@ int main(){
 
     cin >> str >> s;
     int j = 0;
-    stack<pair<int,int>> st;
-    st.push({0,-1});
-    for(int i = 0; i < str.size(); i++){
-        pair<int,int> next = st.top();
-        int j = next.first;
+    st[0] = 0;
+    c[0] = ' ';
+    int strsz = str.size();
+    int ssz = s.size();
+    for(int i = 0; i < strsz; i++){
+        int j = st[head];
         if(str[i] == s[j]){
-            if(j+1 == s.size()){
-                for(int i = 0; i < s.size()-1; i++){
-                    st.pop();
-                }
+            if(j+1 == ssz){
+                head -= ssz-1;
             }
             else{
-                st.push({j+1,str[i]});
+                st[++head] = j+1;
+                c[head] = str[i];
             }
         }
         else{
-            st.push({str[i] == s[0],str[i]});
+            st[++head] = str[i] == s[0];
+            c[head] = str[i];
         }
     }
-    string n = "";
-    while(!st.empty()){
-        n += (char)st.top().second;
-        st.pop();
+  
+    if(head == 0){
+        cout << "FRULA";
     }
-    n.pop_back();
-    reverse(n.begin(), n.end());
-    
-    cout << (n == "" ? "FRULA" : n);
+    else{
+        for(int i = 1; i <= head; i++){
+            cout << c[i];
+        }
+    }
 }
+
