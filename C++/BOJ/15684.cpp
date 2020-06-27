@@ -59,8 +59,8 @@ void f(int depth){
                 swap(l[a],l[b]);
                 c[next][j] = 0;
                 c[here][j] = 0;
-                while(i < H){
-                    if(c[next][j] || c[next][j+1])break;
+                while(i <= H){
+                    if(!c[next][j] && !c[next][j+1])break;
                     j++;
                 }
         }
