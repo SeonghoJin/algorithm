@@ -47,9 +47,8 @@ void f(int depth){
     }
     for(int i = 1; i <= N; i++){
         for(int j = 1; j <= H; j++){
-            int here = i;
-            for(int k = 0; k < 2; k++){
-                int next = here + (k == 0? -1 : 1);
+                int here = i;
+                int next = here + 1;
                 if(next <= 0 || next > N || c[next][j] || c[here][j])continue;
                 int a = pre[here][j];
                 int b = pre[next][j];
@@ -60,8 +59,10 @@ void f(int depth){
                 swap(l[a],l[b]);
                 c[next][j] = 0;
                 c[here][j] = 0;
-            }
-                      
+                while(i < H){
+                    if(c[next][j] || c[next][j+1])break;
+                    j++;
+                }
         }
     }
 }
