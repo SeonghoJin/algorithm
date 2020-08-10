@@ -16,5 +16,5 @@ parseMessage x = case (words x) of
 parse :: String -> [LogMessage]
 parse x = map parseMessage (lines x)
 
-mapparse = map parseMessage
+
 text = "E 2 562 help help\nI 29 la la la\nThis is not in the right format"
