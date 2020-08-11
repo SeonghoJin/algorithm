@@ -1,5 +1,7 @@
 module Log where
 
+import Data.Typeable
+
 data MessageType = Info
                  | Warning
                  | Error Int
