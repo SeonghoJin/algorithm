@@ -20,4 +20,4 @@ testValue = [
     test (deor [1,2,3,4]) [2,2,6,4] "deor [1,2,3,4]"
             ]
 
-doTest = print testValue
+doTest = print testValue:
