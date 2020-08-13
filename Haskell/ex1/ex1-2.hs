@@ -19,5 +19,3 @@ testValue = [
     test (deol [1,2,3,4]) [1,4,3,3] "deol [1,2,3,4]",
     test (deor [1,2,3,4]) [2,2,6,4] "deor [1,2,3,4]"
             ]
-
-doTest = print testValue:

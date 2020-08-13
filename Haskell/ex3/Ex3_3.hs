@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 module Ex3_3 where
 
 
@@ -19,11 +18,3 @@ distMap :: Integer -> Integer
 distMap = calcDist [1,2]
 
 
-=======
-
-initialMap :: Int -> Int
-initialMap x = 0
-
-addMap map key value = \k -> if k==key then value else (map k) 
-
->>>>>>> 9473624... study haskell
