@@ -1,0 +1,5 @@
+temp = input().split(' ')
+temp[0]  = ''.join(reversed(temp[0]))
+temp[1]  = ''.join(reversed(temp[1]))
+answer = int(''.join(reversed(str(int(temp[0]) + int(temp[1])))))
+print (answer)

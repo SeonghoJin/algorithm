@@ -4,3 +4,4 @@ data ExprT = Lit Integer
            | Add ExprT ExprT
            | Mul ExprT ExprT
   deriving (Show, Eq)
+
