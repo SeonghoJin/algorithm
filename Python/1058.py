@@ -3,7 +3,7 @@ from queue import Queue
 n = int(input())
 arr = list()
 
-def count(start):
+def bfs(start):
     visit = [None]*n
     q = Queue()
     ret = 0
@@ -28,7 +28,6 @@ def count(start):
         if(visit[i]):
             ret+=1
 
-        
     return ret
 
 
