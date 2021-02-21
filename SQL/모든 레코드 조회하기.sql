@@ -1,0 +1,1 @@
+select * from ainmals_ins;
