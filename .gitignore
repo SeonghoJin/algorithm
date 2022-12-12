@@ -6,4 +6,13 @@ Javascript/.vscode
 C++/test.cpp
 C++/test.exe
 tempCodeRunnerFile.cpp
-.DS_Store
+.DS_Storemain
+
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
