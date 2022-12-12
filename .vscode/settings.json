@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.html": "html",
+    "*.ejs": "html",
+    "utility": "cpp",
+    "algorithm": "cpp",
+    "iostream": "cpp",
+    "random": "cpp"
+  }
+}
