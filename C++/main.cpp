@@ -1,28 +1,20 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <map>
+#include <set>
+#include <stack>
+#include <unordered_set>
+#include <climits>
+#include <cmath>
+#include <algorithm>
+#include <string>
 
 using namespace std;
 
-map<string, int> m;
-
 int main()
 {
+
     cin.tie(0);
-    ios_base::sync_with_stdio(0);
-
-    string temp;
-
-    int count = 0;;
-
-    while(getline(cin, temp)) {
-        count++;
-        m[temp]++;
-    }
-
-    cout << fixed;
-    cout.precision(4);
-
-    for(auto it = m.begin(); it != m.end(); it++){
-        double percent = ((double)it->second / (double)count) * 100;
-        cout << it->first << ' ' <<  percent << '\n';
-    }
+    std::cin.sync_with_stdio(false);
 }

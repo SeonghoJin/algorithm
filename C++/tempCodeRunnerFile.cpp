@@ -1,9 +1,5 @@
-        // for (int _i = 0; _i < N; _i++)
-        // {
-        //     for (int _j = 0; _j < N; _j++)
-        //     {
-        //         cout << m[_i][_j] << ' ';
-        //     }
-        //     cout << '\n';
-        // }
-        // cout << '\n';
+            // for (int j = 0; j < current; j++)
+            // {
+            //     cout << "(" << vp[j].first << " " << vp[j].second << ")" << "";
+            // }
+            // cout << '\n';
