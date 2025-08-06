@@ -19,6 +19,3 @@ fs.readFile('dev/stdin', 'utf8', function (err, data) {
       .reduce((acc, current) => acc + current, 0)
   );
 });
-
-const len = 
-
