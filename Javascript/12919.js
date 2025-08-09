@@ -4,7 +4,8 @@ const input = require('fs')
   .readFileSync(process.platform === 'linux' ? 0 : './Javascript/dev/stdin.txt')
   .toString()
   .trim()
-  .split(/\s+/);
+  .split(/\r?\n/);
+
 const [source, target] = input;
 /**
  *
