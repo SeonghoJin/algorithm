@@ -1,0 +1,1 @@
+DELETE p1 From Person as p1, Person as p2 where p1.id > p2.id AND p1.email = p2.email
