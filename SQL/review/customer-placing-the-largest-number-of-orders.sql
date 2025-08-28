@@ -1,0 +1,1 @@
+SELECT t.customer_number from (SELECT o1.customer_number, COUNT(o1.customer_number) as cnt from Orders as o1 Group by customer_number order by cnt desc limit 1) as t;
