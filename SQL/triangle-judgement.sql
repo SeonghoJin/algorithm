@@ -1,0 +1,1 @@
+Select t.x, t.y, t.z, CASE X+Y+Z - GREATEST(X,Y,Z) > GREATEST(X,Y,Z) WHEN 1 THEN "Yes" ELSE "No" end as triangle from Triangle as t
