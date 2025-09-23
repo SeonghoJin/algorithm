@@ -1,5 +1,7 @@
-# Write your MySQL query statement below
-select (select count(*) as total from FriendRequest) as total, (select count(*) as t from (select requester_id from FriendRequest f
-LEFT JOIN RequestAccepted r ON f.sender_id = r.requester_id and f.send_to_id = r.accepter_id
-group by sender_id, send_to_id
-HAVING requester_id is not null) as c) as success
+with FriendRequestCount AS (
+    Select Count(distinct sender_id, send_to_id) from FriendRequest
+), RequestAcceptCount AS (
+    Select Count(distinct requester_id, accepter_id) from RequestAccepted
+)
+
+Select ROUND(IFNULL((Select * from RequestAcceptCount) / (Select * from FriendRequestCount), 0), 2) as accept_rate
