@@ -1,0 +1,1 @@
+Select a.player_id, a.event_date, (Select SUM(a2.games_played) from Activity a2 where a2.event_date <= a.event_date and a2.player_id = a.player_id) as games_played_so_far from Activity a
