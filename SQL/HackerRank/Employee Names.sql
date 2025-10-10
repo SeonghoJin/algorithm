@@ -1,2 +1,0 @@
-SELECT NAME FROM Employee
-ORDER BY name;
